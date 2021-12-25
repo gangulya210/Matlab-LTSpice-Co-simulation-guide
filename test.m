@@ -12,8 +12,9 @@ data1=data';
 plot(t1,data1);
 A=[t1 data1];
 csvwrite('myfile.txt',A);
-status= system('"C:\Program Files\LTC\LTspiceXVII\XVIIx64.exe" -Run -b C:\Users\Anirban\Desktop\RCtest.asc');
-readfile=LTspice2Matlab('RCtest.raw');
+status= system('"C:\Program Files\LTC\LTspiceXVII\XVIIx64.exe" -Run -b C:\Users\Anirban\Desktop\RCtest.asc'); %runs LTspice from command line in batch mode
+%pause(5) % may be included when the simulation in spice is slower %
+readfile=LTspice2Matlab('RCtest.raw'); %reads raw data
 CV1=1;
 CV2=2;
 x1=readfile.variable_mat(CV1,:);
